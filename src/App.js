@@ -1,22 +1,22 @@
 import React from 'react';
 
+import GlobalStyle from './styles/global';
+import { ThemeProvider } from 'styled-components';
+import light from './styles/themes/light';
+
+import { Container, Content } from './styles';
+import Upload from './components/Upload';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={light}>
+      <Container>
+        <Content>
+          <Upload />
+        </Content>
+      </Container>
+      <GlobalStyle />
+    </ThemeProvider>
   );
 }
 
