@@ -4,6 +4,7 @@ export default {
   colors: {
     primary: '#7d2ae8',
     primaryTransparent: 'rgba(125, 42, 232, 0.75)',
+    backgroundPrimaryTransparent: 'rgba(125, 42, 232, 0.05)',
     background: '#fff',
     backgroundSecondary: '#ddd',
     success: '#4caf50',
