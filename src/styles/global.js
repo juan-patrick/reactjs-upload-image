@@ -13,7 +13,8 @@ export default createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background: ${(props) => props.theme.colors.primary}
+    background: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.text};
   }
 
   html, body, #root{   
