@@ -11,15 +11,29 @@ const dragReject = css`
 `;
 
 export const DropContainer = styled.div.attrs({ className: 'dropzone' })`
-  border: 1px dashed ${(props) => props.theme.colors.backgroundSecondary};
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px 30px;
 
   cursor: pointer;
-
   transition: height 0.2s ease;
+  border-radius: 4px;
+
+  border: 3px dashed ${(props) => props.theme.colors.primaryTransparent};
+  color: ${(props) => props.theme.colors.primaryTransparent};
 
   ${(props) => props.isDragActive && dragActive};
   ${(props) => props.isDragReject && dragReject};
 `;
 
-export const UploadMessage = styled.p``;
+export const UploadMessage = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em 0 0 0;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+`;
