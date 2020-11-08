@@ -8,6 +8,7 @@
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.2.3",
     "react-icons": "^3.11.0",
+    "react-lottie": "^1.2.3",
     "react-scripts": "3.4.1"
   },
   "scripts": {
