@@ -34,7 +34,7 @@ export const Header = styled.header`
 
   & p {
     margin-top: 3px;
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: ${(props) => props.theme.colors.subtext};
     font-weight: 600;
   }

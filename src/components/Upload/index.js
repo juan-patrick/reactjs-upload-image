@@ -4,8 +4,6 @@ import Dropzone from 'react-dropzone';
 
 import { DropContainer, UploadMessage } from './styles';
 
-import { BiImageAdd } from 'react-icons/bi';
-
 import { FaRegSadCry } from 'react-icons/fa';
 
 import photoIcon from '../../assets/photo.svg';
@@ -36,7 +34,7 @@ function Upload() {
         >
           <input {...getInputProps()} />
           {!isDragReject && !isDragActive ? (
-            <img src={photoIcon} />
+            <img src={photoIcon} alt="icon" />
           ) : !isDragReject && isDragActive ? (
             <Animation
               loop={true}

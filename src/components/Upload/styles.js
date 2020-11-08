@@ -45,6 +45,10 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })`
   border: 3px dashed ${(props) => props.theme.colors.primaryTransparent};
   color: ${(props) => props.theme.colors.primaryTransparent};
 
+  &:hover {
+    background: ${(props) => props.theme.colors.backgroundPrimaryTransparent};
+  }
+
   ${(props) => props.isDragActive && dragActive};
   ${(props) => props.isDragReject && dragReject};
 
