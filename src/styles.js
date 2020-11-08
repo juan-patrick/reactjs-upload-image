@@ -9,13 +9,33 @@ export const Container = styled.div`
 
 export const Content = styled.main`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
   height: 100%;
-  max-height: 450px;
-  max-width: 450px;
+
+  max-width: 500px;
+  max-height: 500px;
+
   margin: 30px;
   padding: 20px;
+
   border-radius: 4px;
   background: ${(props) => props.theme.colors.background};
+
+  @media (max-width: 1000px) {
+    & {
+    }
+  }
+`;
+
+export const Header = styled.header`
+  text-align: center;
+
+  & p {
+    margin-top: 3px;
+    font-size: 0.8em;
+    color: ${(props) => props.theme.colors.subtext};
+    font-weight: 600;
+  }
 `;
