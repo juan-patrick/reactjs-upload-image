@@ -7,8 +7,10 @@ export default {
     background: '#fff',
     backgroundSecondary: '#ddd',
     success: '#4caf50',
+    successTransparent: 'rgba(76, 175, 79, 0.05)',
     error: '#f44336',
-    text: '#222',
-    subtext: '#9e9e9e',
+    errorTransparent: 'rgba(244, 67, 54, 0.05)',
+    text: '#444',
+    subtext: 'rgba(0,0,0, 0.45)',
   },
 };
