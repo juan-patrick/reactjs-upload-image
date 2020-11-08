@@ -11,14 +11,14 @@ import { FaRegSadCry } from 'react-icons/fa';
 function Upload() {
   const DragMessage = (isDragActive, isDragReject) => {
     if (!isDragActive) {
-      return 'Arraste suas imagens aqui...';
+      return 'Arraste suas imagens aqui';
     }
 
     if (isDragReject) {
-      return 'Ohh não! Isto não é uma imagem...';
+      return 'Ohh não! Isto não é uma imagem';
     }
 
-    return 'Solte seus arquivos...';
+    return 'Solte suas imagens';
   };
   return (
     <Dropzone accept="image/*" onDropAccepted={() => {}}>
