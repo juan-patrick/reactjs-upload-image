@@ -8,6 +8,12 @@ import { BiImageAdd } from 'react-icons/bi';
 
 import { FaRegSadCry } from 'react-icons/fa';
 
+import photoIcon from '../../assets/photo.svg';
+
+import * as folderSuccess from '../../assets/folder-success.json';
+
+import Animation from '../Animation';
+
 function Upload() {
   const DragMessage = (isDragActive, isDragReject) => {
     if (!isDragActive) {
@@ -29,7 +35,18 @@ function Upload() {
           isDragReject={isDragReject}
         >
           <input {...getInputProps()} />
-          {!isDragReject ? <BiImageAdd size={64} /> : <FaRegSadCry size={64} />}
+          {!isDragReject && !isDragActive ? (
+            <img src={photoIcon} />
+          ) : !isDragReject && isDragActive ? (
+            <Animation
+              loop={true}
+              autoplay={true}
+              size={64}
+              data={folderSuccess}
+            />
+          ) : (
+            <FaRegSadCry size={64} />
+          )}
           <UploadMessage>
             {DragMessage(isDragActive, isDragReject)}
           </UploadMessage>
