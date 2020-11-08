@@ -5,8 +5,6 @@ export const Container = styled.section`
   height: 100%;
   width: 100%;
 
-  margin: 15px 0 0 0;
-
   & ul {
     display: flex;
     flex-direction: column;
