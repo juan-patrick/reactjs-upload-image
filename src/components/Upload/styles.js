@@ -1,4 +1,20 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const errorAnimation = keyframes`  
+    0%,
+    50% {
+      transform: rotate(-3deg);
+    }
+
+    25%,
+    75% {
+      transform: rotate(3deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }  
+`;
 
 const dragActive = css`
   color: ${(props) => props.theme.colors.success};
@@ -10,6 +26,7 @@ const dragReject = css`
   color: ${(props) => props.theme.colors.error};
   border-color: ${(props) => props.theme.colors.error};
   background: ${(props) => props.theme.colors.errorTransparent};
+  animation: ${errorAnimation} 0.3s linear;
 `;
 
 export const DropContainer = styled.div.attrs({ className: 'dropzone' })`
@@ -30,6 +47,16 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })`
 
   ${(props) => props.isDragActive && dragActive};
   ${(props) => props.isDragReject && dragReject};
+
+  & img {
+    width: 64px;
+    height: 64px;
+    margin: 0 0 10px 0;
+  }
+
+  & svg {
+    margin: 0 0 10px 0;
+  }
 `;
 
 export const UploadMessage = styled.p`
