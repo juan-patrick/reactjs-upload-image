@@ -22,7 +22,9 @@ function FileList(props) {
 
             <div>
               <strong>profile.png</strong>
-              <span>2.4 mb</span>
+              <span>
+                2.4 mb <a href="/">Excluir</a>
+              </span>
             </div>
           </FileInfo>
           <div>

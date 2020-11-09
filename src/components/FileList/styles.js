@@ -45,6 +45,15 @@ export const FileInfo = styled.div`
     font-size: 0.85em;
   }
 
+  & span a {
+    margin-left: 12px;
+    color: ${(props) => props.theme.colors.error};    
+  } 
+
+  & span a:hover{
+    color: #da3d31;
+  }
+
   & div {
     display: flex;
     flex-direction: column;
