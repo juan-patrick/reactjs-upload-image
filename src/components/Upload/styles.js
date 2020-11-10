@@ -39,7 +39,7 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })`
   padding: 15px 30px;
 
   cursor: pointer;
-  transition: height 0.2s ease;
+  transition: height 1s ease;
   border-radius: 4px;
 
   border: 3px dashed ${(props) => props.theme.colors.primaryTransparent};
@@ -70,5 +70,5 @@ export const UploadMessage = styled.p`
   text-align: center;
   margin: 0.5em 0 0 0;
   font-weight: 700;
-  letter-spacing: 0.075em;
+  letter-spacing: 0.04em;
 `;

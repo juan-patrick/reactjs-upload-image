@@ -11,7 +11,7 @@ export default {
     successTransparent: 'rgba(76, 175, 79, 0.05)',
     error: '#f44336',
     errorTransparent: 'rgba(244, 67, 54, 0.05)',
-    text: '#444',
+    text: '#222',
     subtext: 'rgba(0,0,0, 0.45)',
   },
 };
