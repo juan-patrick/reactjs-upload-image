@@ -11,16 +11,20 @@ export const Container = styled.section`
     color: ${(props) => props.theme.colors.subtext};
     margin-bottom: 10px;
   }
+`;
 
-  & ul {
-    display: flex;
-    flex-direction: column;
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
 
-    width: 100%;
-    list-style: none;
+  width: 100%;
+  list-style: none;
+
+  & + li {
+    margin-top: 10px;
   }
 
-  & ul li {
+  & li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,26 +42,30 @@ export const FileInfo = styled.div`
   display: flex;
   width: 100%;
 
-  & span {
-    margin-top: 5px;
-    color: ${(props) => props.theme.colors.subtext};
-    font-weight: 600;
-    font-size: 0.85em;
-  }
-
-  & span a {
-    margin-left: 12px;
-    color: ${(props) => props.theme.colors.error};    
-  } 
-
-  & span a:hover{
-    color: #da3d31;
-  }
-
   & div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 0 0 10px;
+  }
+
+  & span {
+    margin-top: 5px;
+    color: ${(props) => props.theme.colors.subtext};
+    font-weight: 600;
+    font-size: 0.85em;
+
+    button {
+      margin-left: 5px;
+      border: none;
+      background: transparent;
+      font-size: 1em;
+      color: ${(props) => props.theme.colors.error};
+    }
+
+    button:hover {
+      color: #da3d31;
+      cursor: pointer;
+    }
   }
 `;
