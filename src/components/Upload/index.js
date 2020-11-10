@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Dropzone from 'react-dropzone';
 
@@ -11,8 +11,11 @@ import photoIcon from '../../assets/photo.svg';
 import * as folderSuccess from '../../assets/folder-success.json';
 
 import Animation from '../Animation';
+import { UploadContext } from '../../providers/UploadProvider';
 
 function Upload() {
+  const { handleUpload } = useContext(UploadContext);
+
   const DragMessage = (isDragActive, isDragReject) => {
     if (!isDragActive) {
       return 'Arraste suas imagens aqui';
@@ -25,7 +28,7 @@ function Upload() {
     return 'Solte suas imagens';
   };
   return (
-    <Dropzone accept="image/*" onDropAccepted={() => {}}>
+    <Dropzone accept="image/*" onDropAccepted={handleUpload}>
       {({ getRootProps, getInputProps, isDragActive, isDragReject }) => (
         <DropContainer
           {...getRootProps()}
