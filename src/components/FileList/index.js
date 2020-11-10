@@ -18,7 +18,7 @@ function FileList() {
       <h4>Imagens carregadas</h4>
       <List>
         {uploadedFiles.map((file) => (
-          <li>
+          <li key={file.id}>
             <FileInfo>
               <Preview src={file.preview} alt="preview" />
 
