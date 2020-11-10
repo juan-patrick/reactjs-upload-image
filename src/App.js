@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import GlobalStyle from './styles/global';
 import { ThemeProvider } from 'styled-components';
@@ -8,7 +8,11 @@ import { Container, Header, Content } from './styles';
 import Upload from './components/Upload';
 import FileList from './components/FileList';
 
+import { UploadContext } from './providers/UploadProvider';
+
 function App() {
+  const { uploadedFiles } = useContext(UploadContext);
+
   return (
     <ThemeProvider theme={light}>
       <Container>
@@ -18,7 +22,7 @@ function App() {
             <p>Imagens do tipo .png ou .jpg</p>
           </Header>
           <Upload />
-          <FileList />
+          {!!uploadedFiles.length && <FileList />}
         </Content>
       </Container>
       <GlobalStyle />
