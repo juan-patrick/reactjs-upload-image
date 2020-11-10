@@ -1,9 +1,20 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const showAnimation = keyframes`  
+  0% {
+    opacity:0;
+    transform: scaleY(0) translateY(-100%);
+  }
+  100% {
+    opacity:1;
+    transform:  scaleY(1) translateY(0%);
+  }
+`;
 
 export const Container = styled.section`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 50px;
   width: 100%;
 
   & h4 {
@@ -20,14 +31,21 @@ export const List = styled.ul`
   width: 100%;
   list-style: none;
 
-  & + li {
-    margin-top: 10px;
-  }
+  padding: 0 20px 0 0;
+
+  max-height: 200px;
+  overflow-x: auto;
 
   & li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    animation: ${showAnimation} linear 0.3s;
+    animation-iteration-count: 1;
+
+    & + li {
+      margin-top: 10px;
+    }
   }
 `;
 

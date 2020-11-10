@@ -10,23 +10,19 @@ export const Container = styled.div`
 export const Content = styled.main`
   display: flex;
   flex-direction: column;
+
   gap: 20px;
   width: 100%;
-  height: 100%;
 
   max-width: 500px;
-  max-height: 500px;
+
+  transition: all 2 ease;
 
   margin: 30px;
   padding: 20px;
 
   border-radius: 4px;
   background: ${(props) => props.theme.colors.background};
-
-  @media (max-width: 1000px) {
-    & {
-    }
-  }
 `;
 
 export const Header = styled.header`

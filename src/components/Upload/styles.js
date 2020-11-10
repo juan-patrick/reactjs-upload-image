@@ -39,7 +39,7 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })`
   padding: 15px 30px;
 
   cursor: pointer;
-  transition: height 1s ease;
+
   border-radius: 4px;
 
   border: 3px dashed ${(props) => props.theme.colors.primaryTransparent};
