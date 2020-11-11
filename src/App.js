@@ -16,7 +16,7 @@ function App() {
   return (
     <ThemeProvider theme={light}>
       <Container>
-        <Content>
+        <Content layout>
           <Header>
             <h2>Upload de Imagens</h2>
             <p>Imagens do tipo .png ou .jpg</p>

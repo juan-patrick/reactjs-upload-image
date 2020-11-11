@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -7,7 +8,7 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const Content = styled.main`
+export const Content = styled(motion.main)`
   display: flex;
   flex-direction: column;
 
@@ -16,7 +17,10 @@ export const Content = styled.main`
 
   max-width: 500px;
 
-  transition: all 2 ease;
+  height: auto;
+  max-height: 600px;
+
+  transition: height 2 ease;
 
   margin: 30px;
   padding: 20px;
