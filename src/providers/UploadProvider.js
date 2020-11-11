@@ -10,18 +10,66 @@ export const UploadContext = createContext({});
 
 export default function UploadProvider({ children }) {
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [filesToUpload, setFilesToUpload] = useState([]);
 
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
+    function updateFile(id, data) {
+      setFilesToUpload(
+        filesToUpload.map((uploadedFile) => {
+          return id === uploadedFile.id
+            ? { ...uploadedFile, ...data }
+            : uploadedFile;
+        })
+      );
+
+      setUploadedFiles((state) => [
+        ...state.map((uploadedFile) => {
+          return id === uploadedFile.id
+            ? { ...uploadedFile, ...data }
+            : uploadedFile;
+        }),
+      ]);
+    }
+
+    function processUpload(uploadedFile) {
+      const data = new FormData();
+
+      data.append('file', uploadedFile.file, uploadedFile.name);
+
+      api
+        .post('/posts', data, {
+          onUploadProgress: (e) => {
+            const progress = parseInt(Math.round((e.loaded * 100) / e.total));
+
+            updateFile(uploadedFile.id, {
+              progress,
+            });
+          },
+        })
+        .then(({ data }) => {
+          updateFile(uploadedFile.id, {
+            uploaded: true,
+            id: data._id,
+            url: data.url,
+          });
+        })
+        .catch(() => {
+          updateFile(uploadedFile.id, {
+            error: true,
+          });
+        });
+    }
+
     if (uploading) {
-      uploadedFiles.forEach(processUpload);
+      filesToUpload.forEach(processUpload);
       setUploading(false);
     }
-  }, [uploading]);
+  }, [uploading, filesToUpload]);
 
   function handleUpload(files) {
-    const filesToUpload = files.map((file) => ({
+    const newFiles = files.map((file) => ({
       file,
       id: uniqueId(),
       name: file.name,
@@ -33,48 +81,11 @@ export default function UploadProvider({ children }) {
       url: null,
     }));
 
-    setUploadedFiles(uploadedFiles.concat(filesToUpload));
+    setFilesToUpload(newFiles);
+
+    setUploadedFiles([...uploadedFiles, ...newFiles]);
 
     setUploading(true);
-  }
-
-  function updateFile(id, data) {
-    setUploadedFiles(
-      uploadedFiles.map((uploadedFile) => {
-        return id === uploadedFile.id
-          ? { ...uploadedFile, ...data }
-          : uploadedFile;
-      })
-    );
-  }
-
-  function processUpload(uploadedFile) {
-    const data = new FormData();
-
-    data.append('file', uploadedFile.file, uploadedFile.name);
-
-    api
-      .post('/posts', data, {
-        onUploadProgress: (e) => {
-          const progress = parseInt(Math.round((e.loaded * 100) / e.total));
-
-          updateFile(uploadedFile.id, {
-            progress,
-          });
-        },
-      })
-      .then(({ data }) => {
-        updateFile(uploadedFile.id, {
-          uploaded: true,
-          id: data._id,
-          url: data.url,
-        });
-      })
-      .catch(() => {
-        updateFile(uploadedFile.id, {
-          error: true,
-        });
-      });
   }
 
   return (
