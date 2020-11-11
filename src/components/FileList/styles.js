@@ -1,17 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
-const showAnimation = keyframes`  
-  0% {
-    opacity:0;
-    transform: scaleY(0) translateY(-100%);
-  }
-  100% {
-    opacity:1;
-    transform:  scaleY(1) translateY(0%);
-  }
-`;
-
-export const Container = styled.section`
+export const Container = styled(motion.section)`
   display: flex;
   flex-direction: column;
   min-height: 50px;
@@ -24,7 +14,7 @@ export const Container = styled.section`
   }
 `;
 
-export const List = styled.ul`
+export const List = styled(motion.ul)`
   display: flex;
   flex-direction: column;
 
@@ -35,17 +25,15 @@ export const List = styled.ul`
 
   max-height: 200px;
   overflow-x: auto;
+`;
 
-  & li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    animation: ${showAnimation} linear 0.3s;
-    animation-iteration-count: 1;
+export const ListItem = styled(motion.li)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    & + li {
-      margin-top: 10px;
-    }
+  & + li {
+    margin-top: 10px;
   }
 `;
 

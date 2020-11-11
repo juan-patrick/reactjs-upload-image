@@ -34,7 +34,7 @@ export const DropContainer = styled.div.attrs({ className: 'dropzone' })`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 150px;
   width: 100%;
   padding: 15px 30px;
 
