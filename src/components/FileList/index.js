@@ -11,7 +11,7 @@ import { UploadContext } from '../../providers/UploadProvider';
 
 function FileList() {
   const themeContext = useContext(ThemeContext);
-  const { uploadedFiles } = useContext(UploadContext);
+  const { uploadedFiles, handleDelete } = useContext(UploadContext);
 
   return (
     <Container>
@@ -26,7 +26,11 @@ function FileList() {
                 <strong>{file.name}</strong>
                 <span>
                   {file.readableSize}
-                  {!!file.url && <button onClick={() => {}}>Excluir</button>}
+                  {!!file.url && (
+                    <button onClick={(e) => handleDelete(file.id)}>
+                      Excluir
+                    </button>
+                  )}
                 </span>
               </div>
             </FileInfo>

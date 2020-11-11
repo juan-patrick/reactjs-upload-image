@@ -15,6 +15,28 @@ export default function UploadProvider({ children }) {
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
+    async function loadFiles() {
+      await api
+        .get('/posts')
+        .then(({ data }) => {
+          setUploadedFiles(
+            data.map((file) => ({
+              id: file._id,
+              name: file.name,
+              readableSize: filesize(file.size),
+              preview: file.url,
+              uploaded: true,
+              url: file.url,
+            }))
+          );
+        })
+        .catch(() => {});
+    }
+
+    loadFiles();
+  }, []);
+
+  useEffect(() => {
     function updateFile(id, data) {
       setFilesToUpload(
         filesToUpload.map((uploadedFile) => {
@@ -88,9 +110,15 @@ export default function UploadProvider({ children }) {
     setUploading(true);
   }
 
+  async function handleDelete(fileId) {
+    await api.delete(`/posts/${fileId}`);
+
+    setUploadedFiles(uploadedFiles.filter((file) => file.id !== fileId));
+  }
+
   return (
     <UploadContext.Provider
-      value={{ handleUpload, uploadedFiles, setUploadedFiles }}
+      value={{ handleDelete, handleUpload, uploadedFiles, setUploadedFiles }}
     >
       {children}
     </UploadContext.Provider>
