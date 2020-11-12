@@ -1,4 +1,6 @@
-<img src="src/assets/demo.gif" style="margin: 10px 0">
+<p align="center">
+<img src="src/assets/demo.gif" align="center" style="margin: 10px 0">
+</p>
 
 <h1 style="margin-top: 15px;" align="center">React.js Image Upload</h1>
 
@@ -9,8 +11,6 @@ Aplicação React com animações utilizando [Framer Motion](https://github.com/
 
 ## Sobre
 
-<hr>
-
 Essa aplicação é baseada no [vídeo](https://www.youtube.com/watch?v=G5UZmvkLWSQ) da [Rocketseat](https://github.com/Rocketseat) que por sua vez é a representa o front-end de um sistema de armazenamento de imagens localmente ou utilizando o serviço da [AWS S3](https://aws.amazon.com/pt/s3/). Essa é a minha versão da aplicação da Rocketseat e traz bibliotecas de animações como [Framer Motion](https://github.com/framer/motion) e [Lottie](https://github.com/airbnb/lottie-web) para melhorar a experiência do usuário.
 
 ![alt](src/assets/app1-banner.png)
@@ -20,7 +20,6 @@ Sendo assim o back-end já foi desenvolvido por mim também e está disponível 
 
 
 ## ✅ Instalação
-<hr>
 
 ### Pré-requisitos
 
