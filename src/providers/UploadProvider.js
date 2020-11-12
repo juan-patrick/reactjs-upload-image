@@ -105,7 +105,7 @@ export default function UploadProvider({ children }) {
 
     setFilesToUpload(newFiles);
 
-    setUploadedFiles([...uploadedFiles, ...newFiles]);
+    setUploadedFiles([...newFiles, ...uploadedFiles]);
 
     setUploading(true);
   }
