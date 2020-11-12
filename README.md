@@ -5,8 +5,8 @@
 <h1 style="margin-top: 15px;" align="center">React.js Image Upload</h1>
 
 
-
-Aplicação React com animações utilizando [Framer Motion](https://github.com/framer/motion) e drag & drop usando [React-Dropzone](https://github.com/react-dropzone/react-dropzone).
+<p align="center">
+Aplicação React com animações utilizando <a href="https://github.com/framer/motion" target="_blank">Framer Motion</a> e drag & drop usando <a href="https://github.com/framer/motion" target="_blank">React-Dropzone</a>.
 
 
 ## Sobre
